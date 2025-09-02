@@ -1,0 +1,61 @@
+/* Tema escuro padrão */
+body {
+  background: #1e1e1e;
+  color: #f0f0f0;
+}
+
+#controls {
+  background: #2c2c2c;
+}
+
+input {
+  background: #3c3c3c;
+  color: #f0f0f0;
+  border: 1px solid #555;
+}
+
+button {
+  background: #444;
+  color: #f0f0f0;
+  border: 1px solid #666;
+}
+
+#panel {
+  background: #2a2a2a;
+}
+
+#panel pre {
+  background: #3c3c3c;
+  color: #f0f0f0;
+}
+
+/* Tema claro */
+body.light {
+  background: #f3f3f3;
+  color: #1e1e1e;
+}
+
+body.light #controls {
+  background: #f3f3f3;
+}
+
+body.light input {
+  background: #fff;
+  color: #1e1e1e;
+  border: 1px solid #ccc;
+}
+
+body.light button {
+  background: #eaeaea;
+  color: #1e1e1e;
+  border: 1px solid #ccc;
+}
+
+body.light #panel {
+  background: #fafafa;
+}
+
+body.light #panel pre {
+  background: #eaeaea;
+  color: #1e1e1e;
+}
