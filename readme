@@ -1,0 +1,32 @@
+# Mini Cypress IA
+
+Mini Cypress IA é um aplicativo desktop feito com Electron para facilitar a inspeção de elementos em páginas web e gerar seletores XPath otimizados para automação de testes, utilizando inteligência artificial (Mistral).
+
+## Como usar
+
+1. **Instale as dependências:**
+   ```sh
+   npm install
+   ```
+
+23. **Execute a aplicação Electron:**
+   ```sh
+   npx electron .
+   ```
+
+3. **Utilize o app:**
+   - Insira a URL desejada.
+   - Clique em **Abrir Site**.
+   - Use **Ativar Seleção** para escolher um elemento na página.
+   - Os XPaths gerados aparecerão no painel lateral.
+
+## Requisitos
+
+- Node.js
+- Electron
+- Servidor Mistral rodando localmente (configurado em `model/mistralClient.js`)
+
+## Observações
+
+- O arquivo `.gitignore` já ignora `node_modules`, `dist` e `.env`.
+- Para mais detalhes, consulte os arquivos principais do projeto: `main.js`, `renderer.js`, `preload.js`
