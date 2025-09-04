@@ -10,13 +10,12 @@
  * - Exibe o XPath gerado para o elemento selecionado.
  */
 
-
 const webview = document.getElementById('site');
 const openBtn = document.getElementById('open');
 const selectBtn = document.getElementById('select');
 const domDisplay = document.getElementById('dom-display');
 const indicator = document.getElementById("selection-indicator");
-const toggleThemeBtn = document.getElementById('toggle-theme');
+
 
 let selectionActive = false;
 
@@ -113,20 +112,3 @@ selectBtn.addEventListener('click', () => {
 });
 
 
-
-document.body.classList.remove('light'); 
-
-toggleThemeBtn.addEventListener('click', () => {
-  if (document.body.classList.contains('light')) {
-    document.body.classList.remove('light');
-    toggleThemeBtn.textContent = 'Tema Claro';
-  } else {
-    document.body.classList.add('light');
-    toggleThemeBtn.textContent = 'Tema Escuro';
-  }
-});
-
-window.electronAPI.onElementSelected((data) => {
-  const domDisplay = document.getElementById('dom-display');
-  domDisplay.textContent = `XPath:\n${data.xpath}`;
-});

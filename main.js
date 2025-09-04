@@ -4,6 +4,7 @@ const MistralClient = require("./model/mistralClient");
 const fs = require("fs");
 const promptFile = path.join(__dirname, "./prompt/prompt_inicial.txt");
 const mistral = new MistralClient();
+
 let systemMessage = "";
 let mainWindow;
 
@@ -39,22 +40,29 @@ app.on('window-all-closed', () => {
 
 ipcMain.on('element-selected', async (event, elementData) => {
   console.log("Elemento selecionado no Main:", elementData);
-  //mainWindow.webContents.send('element-selected', elementData);
 
   if (!elementData || !elementData.html) {
     console.warn("⚠️ elementData ou elementData.html está vazio:", elementData);
     return;
   }
-  console.log("Elemento recebido no Main:", elementData);
 
   try {
-    const userPrompt = " DOM do elemento selecionado"+ elementData.html; 
-    const response = await mistral.ask(systemMessage, userPrompt);
-    console.log("Resposta do modelo:", response);
+    const userPrompt = "DOM do elemento selecionado: " + elementData.html;
+    const responseText = await mistral.ask(systemMessage, userPrompt);
 
-    mainWindow.webContents.send('element-selected', {...elementData, xpath: response });
+    console.log("Resposta do modelo (texto):", responseText);
+
+    mainWindow.webContents.send('element-selected', {
+      ...elementData,
+      xpath: responseText 
+    });
 
   } catch (err) {
     console.error("Erro ao chamar modelo:", err);
+    mainWindow.webContents.send('element-selected', {
+      ...elementData,
+      modelResponse: { selectors: [], raw: err.message }
+    });
   }
 });
+

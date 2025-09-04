@@ -18,7 +18,8 @@ class MistralClient {
     try {
 
       const response = await axios.post(this.baseUrl, payload);
-      return response.data?.response || "";
+      return response.data?.response || response.data?.output || "";
+
     } catch (error) {
       console.error("Erro ao chamar modelo: ", error.message);
       throw error;

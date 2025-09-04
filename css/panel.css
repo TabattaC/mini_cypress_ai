@@ -1,0 +1,35 @@
+.xpath-item {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin: 5px 0;
+  background: #f8f8f8;
+}
+
+.xpath-header {
+  padding: 8px;
+  cursor: pointer;
+  background: #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.xpath-content {
+  padding: 8px;
+  display: none;
+  font-family: monospace;
+  white-space: pre-wrap;
+  background: #fff;
+}
+
+/* exibe conteúdo quando expandido */
+.xpath-item.expanded .xpath-content {
+  display: block;
+}
+
+/* seta de texto */
+.arrow {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+}

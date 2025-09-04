@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Mini Cypress DevTools</title>
+  <title>Mini Cypress</title>
   <style>
     body { margin: 0; font-family: Arial; }
     #controls { height: 50px; padding: 10px; background: #f3f3f3; display: flex; align-items: center; }
@@ -14,15 +14,15 @@
     #panel pre { background: #eaeaea; padding: 10px; border-radius: 4px; }
   </style>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/panel.css">
 
 </head>
 <body>
   <div id="controls">
-    URL: <input id="url" placeholder="https://example.com"/>
+    URL: <input id="url" placeholder="Digite a URL..."/>
     <button id="open">Abrir Site</button>
     <button id="select">Ativar Seleção</button>
-    <button id="toggle-theme">Tema Claro</button>
-
+    <button id="toggle-theme">Tema Escuro</button>
   </div>
 
   <div id="container">
@@ -31,6 +31,7 @@
     </div>
     <div id="panel">
       <h2>Elemento Selecionado</h2>
+      <div id="results"></div>
       <pre id="dom-display">Nenhum elemento selecionado</pre>
     </div>
   </div>
@@ -45,5 +46,7 @@
   🔴 MODO SELEÇÃO ATIVO
 </div>
   <script src="script/renderer.js"></script>
+  <script src="script/switch_theme.js"></script>
+  <script src="script/panel.js"></script>
 </body>
 </html>

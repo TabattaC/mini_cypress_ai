@@ -1,45 +1,168 @@
 /* Tema escuro padrão */
 body {
-  background: #1e1e1e;
-  color: #f0f0f0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #f5f5f5;
 }
 
 #controls {
-  background: #2c2c2c;
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  background-color: #333;
+  color: #fff;
 }
 
-input {
-  background: #3c3c3c;
-  color: #f0f0f0;
-  border: 1px solid #555;
+#controls input {
+  flex: 1;
+  height: 28px;
+  margin-right: 8px;
+  padding: 4px 8px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
 }
 
-button {
-  background: #444;
-  color: #f0f0f0;
-  border: 1px solid #666;
+#controls button {
+  height: 28px;
+  margin-right: 8px;
+  padding: 0 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  background-color: #2363b2;;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 #panel {
   background: #2a2a2a;
 }
 
+#controls button:hover {
+  background-color: #1c4e8a;
+}
+
+#container {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+#webview-container {
+  flex: 2;
+  border-right: 1px solid #ddd;
+  position: relative;
+}
+
+#panel {
+  width: 380px;
+  max-width: 40%;
+  background-color: #fff;
+  overflow-y: auto;
+  padding: 12px;
+  box-shadow: -2px 0 4px rgba(0, 0, 0, 0.1);
+}
+
+webview {
+  width: 100%;
+  height: 100%;
+}
+
+#panel h2 {
+  margin-top: 0;
+  font-size: 16px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 6px;
+}
+
 #panel pre {
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 13px;
+  overflow-x: auto;
+}
+body.light {
+  background-color: #f5f5f5;
+  color: #222;
+}
+
+body.light #controls {
+  background-color: #e5e5e5;
+  color: #000;
+}
+
+body.light #controls input {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #ccc;
+}
+
+body.light #controls button {
+  color: #fff;
+  background-color: #007acc;
+}
+
+body.light #webview-container {
+  border-right: 1px solid #ddd;
+}
+
+body.light #panel {
+  background-color: #fff;
+  box-shadow: -2px 0 4px rgba(0,0,0,0.1);
+}
+body.light #panel h2 {
+  border-bottom: 1px solid #ddd;
+}
+body.light #panel pre {
+  background-color: #f0f0f0;
+  color: #000;
+}
+
+body {
+  background-color: #f5f5f5;
+  color: #222;
+}
+
+/* Tema escuro */
+body.dark {
+  background-color: #1e1e1e;
+  color: #eee;
+}
+
+body.dark #controls {
+  background-color: #111;
+  color: #fff;
+}
+
+body.dark #panel {
+  background-color: #2a2a2a;
+  color: #fff;
+}
+/* #panel pre {
   background: #3c3c3c;
   color: #f0f0f0;
 }
 
 /* Tema claro */
-body.light {
+/* body.light {
   background: #f3f3f3;
   color: #1e1e1e;
 }
 
 body.light #controls {
   background: #f3f3f3;
-}
+} */
 
-body.light input {
+
+
+
+/* body.light input {
   background: #fff;
   color: #1e1e1e;
   border: 1px solid #ccc;
@@ -58,4 +181,4 @@ body.light #panel {
 body.light #panel pre {
   background: #eaeaea;
   color: #1e1e1e;
-}
+} */
