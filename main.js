@@ -39,15 +39,15 @@ app.on('window-all-closed', () => {
 
 
 ipcMain.on('element-selected', async (event, elementData) => {
-  console.log("Elemento selecionado no Main:", elementData);
-
-  if (!elementData || !elementData.html) {
+  const payload = JSON.stringify(elementData, null, 2);
+  console.log("Elemento selecionado recebido no main:", payload);
+  if (!elementData || !elementData.elementDOM) {
     console.warn("⚠️ elementData ou elementData.html está vazio:", elementData);
     return;
   }
 
   try {
-    const userPrompt = "DOM do elemento selecionado: " + elementData.html;
+    const userPrompt = "DOM do elemento selecionado: " + payload;
     const responseText = await mistral.ask(systemMessage, userPrompt);
 
     console.log("Resposta do modelo (texto):", responseText);

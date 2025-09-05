@@ -37,31 +37,27 @@ selectBtn.addEventListener('click', () => {
           e.stopPropagation();
           const el = e.target;
           const elementDOM = el.outerHTML;
-
           let ancestors = [];
           let current = el;
+
           while (current) {
             ancestors.unshift({
               tag: current.tagName.toLowerCase(),
               id: current.id || null,
               class: current.className || null,
-              attrs: Array.from(current.attributes).map(a => ({ name: a.name, value: a.value }))
+              attrs: Array.from(current.attributes).map(a => ({name: a.name, value: a.value}))
             });
             current = current.parentElement;
           }
-
-          const payload = { html: el.outerHTML, ancestors };
+          const payload = { elementDOM, ancestors };
           window.electronAPI.sendElement(payload);
         }
 
+        // Adiciona listeners a todos os elementos
+        // adiciona listener aos elementos existentes
+                document.querySelectorAll("*").forEach(el => el.addEventListener("click", clickHandler, true));
 
-        document.querySelectorAll("*").forEach(el => {
-          if (!el.hasAttribute("data-listener")) {
-            el.addEventListener("click", clickHandler, true);
-            el.setAttribute("data-listener", "true");
-          }
-        });
-
+        // MutationObserver para novos elementos
         const observer = new MutationObserver(() => {
           document.querySelectorAll("*").forEach(el => {
             if (!el.hasAttribute("data-listener")) {
@@ -71,14 +67,14 @@ selectBtn.addEventListener('click', () => {
           });
         });
         observer.observe(document.body, { childList: true, subtree: true });
-
-    
+        // Highlight ao passar mouse
         window.__highlightHandler = function(e) { e.target.style.outline = "2px solid red"; };
         window.__unhighlightHandler = function(e) { e.target.style.outline = ""; };
         document.body.addEventListener("mouseover", window.__highlightHandler);
         document.body.addEventListener("mouseout", window.__unhighlightHandler);
 
-        window.__clickHandler = clickHandler; // salva referência para remover depois
+        // Referência para remover listeners se necessário
+        window.__clickHandler = clickHandler;
       })();
     `);
     selectionActive = true;

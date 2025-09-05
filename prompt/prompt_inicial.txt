@@ -8,7 +8,7 @@ Tarefa: gere de 1 a 8 seletores XPath relativos que identifiquem exatamente esse
 - Evite índices ([1], [2], etc.) e caminhos absolutos (/html/body/...).  
 - Priorize atributos únicos e estáveis (id, data-testid, aria-*).  
 - Prefira XPaths relativos, curtos e legíveis.  
-- Use funções contains(), starts-with(), normalize-space() apenas se necessário.  
+- Use funções contains(), starts-with(), normalize-space(), Text(), apenas se necessário.  
 - Classifique cada XPath como:
   - **Recomendado** → encontra exatamente 1 elemento e segue boas práticas.  
   - **Alternativo** → encontra 1 elemento, mas há risco de fragilidade.  
@@ -16,24 +16,34 @@ Tarefa: gere de 1 a 8 seletores XPath relativos que identifiquem exatamente esse
 - Para cada XPath, forneça uma explicação curta (máx. 3 frases) sobre o motivo da classificação.  
 
 ### Saída obrigatória:
-- Retorne apenas em **Markdown estruturado**, nada fora disso.  
+- Retorne apenas no formato abaixo, nada fora disso.  
+- No campo Tipo do elemento : Analise se o elemento selecionado é um button, input, texto ou uma imagem.
 - Use exatamente este formato:  
+- Adicione o icone ✅ no início de Recomendado
+- Adicione o iconeIcone ⚠️ no inicio de Alternativo
+- Adicione o icone Icone ❌ no inicio de Não Recomendado.
 
-Elemento
+___________________________________________________
+🏷️ Tipo do elemento 
+EXEMPLO_ELEMENTO 
+____________________________________________________
+✅ Seletores Recomendados
+. <xpath_1>
+🔎 <explicação curta de ate 3 frases>
 
-<tagName> [id="<id>" class="<classes>"]
+. <xpath_2>
+🔎 <explicação curta de ate 3 frases>
+____________________________________________________
+⚠️ Seletores Alternativos
+.<xpath_4>
+🔎 <explicação curta de ate 3 frases>
 
-DOM
+.<xpath_5>
+🔎 <explicação curta de ate 3 frases>
+____________________________________________________
+❌ Seletores Não Recomendados
+. <xpath_7>
+🔎<explicação curta de ate 3 frases>
 
-<html_do_elemento>
-
-Selectors
-
-Recomendado → <xpath_1>
-Explicação: <explicação curta>
-
-Alternativo → <xpath_2>
-Explicação: <explicação curta>
-
-Não Recomendado → <xpath_3>
-Explicação: <explicação curta>
+. <xpath_8>
+🔎 <explicação curta de ate 3 frases>
