@@ -30,12 +30,12 @@
   background: #fff;
 }
 
-/* exibe conteúdo quando expandido */
+
 .xpath-item.expanded .xpath-content {
   display: block;
 }
 
-/* seta de texto */
+
 .arrow {
   display: inline-block;
   width: 16px;
